@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --text-color: #636e72;
+            --bg-color: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h1 { margin: 0; color: var(--primary-color); }
+        h2 { color: var(--accent-color); border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .links a:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-top: 4rem;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Name</h1>
+        <p>Software Developer | Designer | Creator</p>
+        <div class="links">
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+            <a href="mailto:yourname@email.com">Email</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Hi there! I'm a passionate builder based in [Your City]. I enjoy solving complex problems 
+                and creating tools that make life easier. Welcome to my little corner of the internet.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A brief description of what this project does and the tools you used to build it (e.g., Python, React, SQL).</p>
+                <a href="#">View Code →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Another cool project that demonstrates your skills. Focus on the impact or the specific problem you solved.</p>
+                <a href="#">View Live Demo →</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Your Name. Built with HTML and CSS.</p>
+    </footer>
+
+</body>
+</html>

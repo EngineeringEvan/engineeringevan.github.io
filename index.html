@@ -1,118 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #2d3436;
-            --accent-color: #0984e3;
-            --text-color: #636e72;
-            --bg-color: #f9f9f9;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--primary-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 3px solid var(--accent-color);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h1 { margin: 0; color: var(--primary-color); }
-        h2 { color: var(--accent-color); border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-
-        .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-right: 15px;
-        }
-
-        .links a:hover { text-decoration: underline; }
-
-        footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            margin-top: 4rem;
-            padding-bottom: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Personal Site</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <style>
+    :root,[data-theme="light"]{--color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;--color-surface-offset:#f0ede8;--color-divider:#dcd9d5;--color-border:#d4d1ca;--color-text:#28251d;--color-text-muted:#6b6a65;--color-text-faint:#bab9b4;--color-text-inverse:#f9f8f4;--color-primary:#01696f;--color-primary-hover:#0c4e54;--color-primary-highlight:#cedcd8;--shadow-sm:0 1px 2px oklch(0.2 0.01 80 / 0.06);--shadow-md:0 4px 12px oklch(0.2 0.01 80 / 0.09);--shadow-lg:0 12px 32px oklch(0.2 0.01 80 / 0.13);--radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);--text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);--text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);--text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);--text-3xl:clamp(2.5rem,1rem + 4vw,5rem);--font-display:'Cabinet Grotesk','Georgia',sans-serif;--font-body:'Satoshi','Helvetica Neue',sans-serif;--transition-interactive:180ms cubic-bezier(0.16,1,0.3,1);}
+    [data-theme="dark"]{--color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;--color-surface-offset:#22211f;--color-divider:#262523;--color-border:#393836;--color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;--color-text-inverse:#2b2a28;--color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-highlight:#313b3b;--shadow-sm:0 1px 2px oklch(0 0 0 / 0.22);--shadow-md:0 4px 12px oklch(0 0 0 / 0.32);--shadow-lg:0 12px 32px oklch(0 0 0 / 0.42);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:var(--space-16);}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.65;transition:background var(--transition-interactive),color var(--transition-interactive);}
+    img{display:block;max-width:100%;height:auto;}
+    a{color:inherit;text-decoration:none;}
+    h1,h2,h3,h4{text-wrap:balance;line-height:1.15;font-family:var(--font-display);}
+    p,li{text-wrap:pretty;}
+    button{cursor:pointer;background:none;border:none;font:inherit;color:inherit;}
+    ::selection{background:oklch(from var(--color-primary) l c h / 0.2);color:var(--color-text);}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}}
+    .skip-link{position:absolute;top:-100%;left:var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;z-index:999;transition:top var(--transition-interactive);}
+    .skip-link:focus{top:var(--space-4);}
+    .nav{position:sticky;top:0;z-index:100;background:oklch(from var(--color-bg) l c h / 0.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--color-divider);transition:background var(--transition-interactive),border-color var(--transition-interactive);}
+    .nav-inner{max-width:960px;margin-inline:auto;padding:var(--space-4) var(--space-6);display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);}
+    .nav-logo{display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-display);font-size:var(--text-lg);font-weight:800;color:var(--color-text);letter-spacing:-0.03em;transition:color var(--transition-interactive);}
+    .nav-logo:hover{color:var(--color-primary);}
+    .nav-links{display:flex;align-items:center;gap:var(--space-6);}
+    .nav-links a{font-size:var(--text-sm);font-weight:500;color:var(--color-text-muted);transition:color var(--transition-interactive);}
+    .nav-links a:hover{color:var(--color-text);}
+    .nav-toggle{width:40px;height:40px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);border:1px solid var(--color-border);transition:color var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive);}
+    .nav-toggle:hover{color:var(--color-text);background:var(--color-surface-offset);}
+    .hero{min-height:75vh;display:flex;align-items:center;padding:clamp(var(--space-16),10vw,var(--space-24)) var(--space-6);}
+    .hero-inner{max-width:960px;margin-inline:auto;width:100%;}
+    .hero-label{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-primary);margin-bottom:var(--space-6);}
+    .hero-label::before{content:'';width:28px;height:2px;background:var(--color-primary);border-radius:2px;}
+    .hero-heading{font-size:var(--text-3xl);font-weight:800;letter-spacing:-0.04em;color:var(--color-text);margin-bottom:var(--space-6);max-width:14ch;}
+    .hero-heading span{color:var(--color-primary);}
+    .hero-sub{font-size:var(--text-lg);color:var(--color-text-muted);max-width:52ch;margin-bottom:var(--space-10);line-height:1.6;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);}
+    .btn{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);font-weight:600;padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);transition:background var(--transition-interactive),color var(--transition-interactive),box-shadow var(--transition-interactive),transform var(--transition-interactive);}
+    .btn:active{transform:scale(0.97);}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse);}
+    .btn-primary:hover{background:var(--color-primary-hover);box-shadow:var(--shadow-md);}
+    .btn-ghost{background:transparent;color:var(--color-text);border:1px solid var(--color-border);}
+    .btn-ghost:hover{background:var(--color-surface-offset);border-color:var(--color-text-muted);}
+    .section{padding:clamp(var(--space-16),8vw,var(--space-24)) var(--space-6);}
+    .section-inner{max-width:960px;margin-inline:auto;}
+    .section-label{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-primary);margin-bottom:var(--space-4);}
+    .section-title{font-size:var(--text-xl);font-weight:800;letter-spacing:-0.03em;color:var(--color-text);margin-bottom:var(--space-3);}
+    .section-desc{font-size:var(--text-base);color:var(--color-text-muted);max-width:55ch;line-height:1.65;}
+    .section-header{margin-bottom:var(--space-12);}
+    hr.divider{border:none;border-top:1px solid var(--color-divider);margin:0;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start;}
+    .about-img-wrap{position:relative;}
+    .about-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);}
+    .about-img-badge{position:absolute;bottom:var(--space-4);left:var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-md);display:flex;align-items:center;gap:var(--space-3);}
+    .about-img-badge-dot{width:10px;height:10px;border-radius:var(--radius-full);background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px oklch(0.73 0.2 145 / 0.25);}
+    .about-img-badge-text{font-size:var(--text-xs);font-weight:600;color:var(--color-text);}
+    .about-content{display:flex;flex-direction:column;gap:var(--space-6);padding-top:var(--space-4);}
+    .about-body{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.75;}
+    .skills-grid{display:flex;flex-wrap:wrap;gap:var(--space-2);}
+    .skill-chip{font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);border:1px solid oklch(from var(--color-primary) l c h / 0.2);}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:var(--space-6);}
+    .project-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h / 0.08);border-radius:var(--radius-xl);overflow:hidden;transition:box-shadow var(--transition-interactive),transform var(--transition-interactive);}
+    .project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+    .project-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--color-surface-offset);}
+    .project-card-body{padding:var(--space-5);}
+    .project-tag{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:var(--space-2);}
+    .project-title{font-size:var(--text-lg);font-weight:700;letter-spacing:-0.02em;color:var(--color-text);margin-bottom:var(--space-2);}
+    .project-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
+    .project-card-footer{padding:var(--space-4) var(--space-5);border-top:1px solid var(--color-divider);display:flex;align-items:center;justify-content:space-between;}
+    .project-link{font-size:var(--text-xs);font-weight:600;color:var(--color-primary);display:flex;align-items:center;gap:var(--space-1);transition:gap var(--transition-interactive),color var(--transition-interactive);}
+    .project-link:hover{gap:var(--space-2);color:var(--color-primary-hover);}
+    .contact-section{background:var(--color-surface);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start;}
+    .contact-info{display:flex;flex-direction:column;gap:var(--space-6);}
+    .contact-blurb{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.75;max-width:42ch;}
+    .social-links{display:flex;flex-direction:column;gap:var(--space-3);}
+    .social-link{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:500;color:var(--color-text-muted);padding:var(--space-3) var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-border);background:var(--color-bg);transition:background var(--transition-interactive),color var(--transition-interactive),border-color var(--transition-interactive);}
+    .social-link:hover{background:var(--color-surface-offset);color:var(--color-text);border-color:var(--color-text-muted);}
+    .social-link svg{flex-shrink:0;color:var(--color-primary);}
+    form{display:flex;flex-direction:column;gap:var(--space-4);}
+    .field{display:flex;flex-direction:column;gap:var(--space-2);}
+    label{font-size:var(--text-sm);font-weight:600;color:var(--color-text);}
+    input,textarea{font:inherit;font-size:var(--text-sm);color:var(--color-text);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);width:100%;transition:border-color var(--transition-interactive),box-shadow var(--transition-interactive);}
+    input:focus,textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px oklch(from var(--color-primary) l c h / 0.15);}
+    textarea{min-height:140px;resize:vertical;}
+    input::placeholder,textarea::placeholder{color:var(--color-text-faint);}
+    footer{padding:var(--space-8) var(--space-6);border-top:1px solid var(--color-divider);}
+    .footer-inner{max-width:960px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;}
+    .footer-copy{font-size:var(--text-xs);color:var(--color-text-faint);}
+    @media(max-width:720px){.nav-links{display:none;}.about-grid,.contact-grid{grid-template-columns:1fr;}.about-img{aspect-ratio:3/2;}.hero-heading{max-width:none;}}
+    @media(max-width:480px){.nav-inner{padding:var(--space-3) var(--space-4);}.section,.hero{padding-inline:var(--space-4);}}
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>Your Name</h1>
-        <p>Software Developer | Designer | Creator</p>
-        <div class="links">
-            <a href="https://github.com/yourusername">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-            <a href="mailto:yourname@email.com">Email</a>
-        </div>
-    </header>
-
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hi there! I'm a passionate builder based in [Your City]. I enjoy solving complex problems 
-                and creating tools that make life easier. Welcome to my little corner of the internet.
-            </p>
-        </section>
-
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            
-            <div class="project-card">
-                <h3>Project One</h3>
-                <p>A brief description of what this project does and the tools you used to build it (e.g., Python, React, SQL).</p>
-                <a href="#">View Code →</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Another cool project that demonstrates your skills. Focus on the impact or the specific problem you solved.</p>
-                <a href="#">View Live Demo →</a>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Let's Connect</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-        </section>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Home">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect width="28" height="28" rx="8" fill="var(--color-primary)"/>
+          <path d="M8 20V8l6 8 6-8v12" stroke="var(--color-text-inverse)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Your Name
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Your Name. Built with HTML and CSS.</p>
-    </footer>
-
+  </header>
+  <main id="main">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <p class="hero-label">Welcome</p>
+        <h1 class="hero-heading">Hi, I'm <span>Your Name.</span></h1>
+        <p class="hero-sub">I'm a [designer / developer / creator] based in [Your City]. I build things that are thoughtful, functional, and worth your attention.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            View My Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-img-wrap">
+            <img class="about-img" src="https://picsum.photos/seed/portrait/480/600" alt="Profile photo — replace with your own" width="480" height="600" loading="lazy" />
+            <div class="about-img-badge">
+              <div class="about-img-badge-dot" aria-hidden="true"></div>
+              <span class="about-img-badge-text">Available for work</span>
+            </div>
+          </div>
+          <div class="about-content">
+            <div>
+              <p class="section-label">About Me</p>
+              <h2 class="section-title" id="about-title">A bit about who I am</h2>
+            </div>
+            <p class="about-body">I'm [Your Name], a [your role] with a passion for [your interests]. I've been working in [your field] for [X years], and I love tackling problems that sit at the intersection of [thing 1] and [thing 2].</p>
+            <p class="about-body">When I'm not working, you'll find me [hobby 1], [hobby 2], or exploring [hobby 3]. I'm always looking for interesting projects and people to collaborate with.</p>
+            <div>
+              <p class="section-label" style="margin-bottom:var(--space-3)">Skills &amp; Tools</p>
+              <div class="skills-grid">
+                <span class="skill-chip">HTML &amp; CSS</span>
+                <span class="skill-chip">JavaScript</span>
+                <span class="skill-chip">React</span>
+                <span class="skill-chip">Figma</span>
+                <span class="skill-chip">Git</span>
+                <span class="skill-chip">Node.js</span>
+                <span class="skill-chip">Add Your Skills</span>
+              </div>
+            </div>
+            <a href="#contact" class="btn btn-primary" style="align-self:flex-start;margin-top:var(--space-2);">
+              Let's Connect
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-label">My Work</p>
+          <h2 class="section-title" id="projects-title">Selected Projects</h2>
+          <p class="section-desc">A few things I've built. Replace these cards with your own projects.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <img class="project-card-img" src="https://picsum.photos/seed/project1/600/338" alt="Project One" width="600" height="338" loading="lazy" />
+            <div class="project-card-body">
+              <p class="project-tag">Web App</p>
+              <h3 class="project-title">Project One</h3>
+              <p class="project-desc">A short description of what this project does and the problem it solves. Keep it to 2–3 sentences.</p>
+            </div>
+            <div class="project-card-footer">
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card-img" src="https://picsum.photos/seed/project2/600/338" alt="Project Two" width="600" height="338" loading="lazy" />
+            <div class="project-card-body">
+              <p class="project-tag">Design</p>
+              <h3 class="project-title">Project Two</h3>
+              <p class="project-desc">Describe what makes this project interesting or challenging. What did you learn building it?</p>
+            </div>
+            <div class="project-card-footer">
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-card-img" src="https://picsum.photos/seed/project3/600/338" alt="Project Three" width="600" height="338" loading="lazy" />
+            <div class="project-card-body">
+              <p class="project-tag">Tool</p>
+              <h3 class="project-title">Project Three</h3>
+              <p class="project-desc">What's the story here? Highlight the impact or the technical challenge that made it memorable.</p>
+            </div>
+            <div class="project-card-footer">
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-inner">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div>
+              <p class="section-label">Contact</p>
+              <h2 class="section-title" id="contact-title">Let's work together</h2>
+            </div>
+            <p class="contact-blurb">Have a project in mind, want to collaborate, or just want to say hi? Fill out the form or reach out directly through any of the links below.</p>
+            <nav class="social-links" aria-label="Social links">
+              <a href="mailto:you@example.com" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                you@example.com
+              </a>
+              <a href="https://github.com/yourusername" class="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                github.com/yourusername
+              </a>
+              <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                linkedin.com/in/yourprofile
+              </a>
+            </nav>
+          </div>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Contact form">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
+              Send Message
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+      <p class="footer-copy">Built with HTML &amp; CSS &middot; Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const toggle=document.querySelector('[data-theme-toggle]'),root=document.documentElement;
+      const sunIcon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+      const moonIcon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      let dark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+      const apply=()=>{root.setAttribute('data-theme',dark?'dark':'light');toggle.innerHTML=dark?sunIcon:moonIcon;toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');};
+      apply();
+      toggle.addEventListener('click',()=>{dark=!dark;apply();});
+    })();
+  </script>
 </body>
 </html>
